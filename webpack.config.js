@@ -13,7 +13,7 @@ const config = {
   entry: {
     'background': './background.js',
     'index': './index.ts',
-    'options/options': './options/options.js',
+    'options/options': './options/options.ts',
   },
   output: {
     path: __dirname + '/dist',
@@ -87,7 +87,7 @@ const config = {
       filename: '[name].css',
     }),
     new CopyPlugin([
-      { from: 'icons', to: 'icons', ignore: ['icon.xcf'] },
+      { from: 'assets/icons', to: 'assets/icons', ignore: ['icon.xcf'] },
       { from: 'index.html', to: 'index.html', transform: transformHtml },
       { from: 'options/options.html', to: 'options/options.html', transform: transformHtml },
       {

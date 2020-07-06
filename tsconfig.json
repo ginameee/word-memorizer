@@ -8,6 +8,10 @@
         // webpack 2 이상 또는 rollup을 사용하여 트리셰이킹을 하려면,
         "module": "esnext",
         "moduleResolution": "node",
+        "typeRoots": [
+            "./node_modules/@types",
+            "./types"
+        ],
     },
     "include": [
         "src/**/*",
@@ -18,9 +22,5 @@
         "node_modules",
         ".idea",
         ".git"
-    ],
-    "typeRoots": [
-        "./node_modules/@types",
-        "./types"
     ],
 }

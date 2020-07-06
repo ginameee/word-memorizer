@@ -1,4 +1,9 @@
-export interface global {
-    document: Document;
-    window: Window;
+declare global {
+    namespace NodeJS {
+        interface Global {
+            browser: any
+        }
+    }
 }
+
+export { };
