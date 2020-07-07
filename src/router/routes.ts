@@ -1,8 +1,8 @@
-import PageIndex from '../pages/Index.vue';
+import Main from '@/pages/Main.vue';
 
 export default [
   {
     path: '/',
-    component: PageIndex,
+    component: Main,
   },
 ];
