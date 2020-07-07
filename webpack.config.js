@@ -5,24 +5,37 @@ const CopyPlugin = require('copy-webpack-plugin');
 const ExtensionReloader = require('webpack-extension-reloader');
 const { VueLoaderPlugin } = require('vue-loader');
 const { version } = require('./package.json');
+const srcPath = require('path').resolve(__dirname, 'src');
 
 const config = {
   mode: process.env.NODE_ENV,
   context: __dirname + '/src',
   entry: {
     'background': './background.js',
-    'popup/popup': './popup/popup.js',
-    'options/options': './options/options.js',
+    'index': './index.ts',
+    'options/options': './options/options.ts',
   },
   output: {
     path: __dirname + '/dist',
     filename: '[name].js',
   },
   resolve: {
-    extensions: ['.js', '.vue'],
+    extensions: ['.js', '.vue', '.ts'],
+    alias: {
+      '@': srcPath,
+      '~': srcPath,
+      '@@': srcPath,
+      '~~': srcPath,
+    }
   },
   module: {
     rules: [
+      {
+        test: /\.tsx?$/,
+        loader: 'ts-loader',
+        options: { appendTsSuffixTo: [/\.vue/] },
+        exclude: /node_modules/,
+      },
       {
         test: /\.vue$/,
         loader: 'vue-loader',
@@ -75,8 +88,8 @@ const config = {
       filename: '[name].css',
     }),
     new CopyPlugin([
-      { from: 'icons', to: 'icons', ignore: ['icon.xcf'] },
-      { from: 'popup/popup.html', to: 'popup/popup.html', transform: transformHtml },
+      { from: 'assets', to: 'assets', ignore: ['icon.xcf'] },
+      { from: 'index.html', to: 'index.html', transform: transformHtml },
       { from: 'options/options.html', to: 'options/options.html', transform: transformHtml },
       {
         from: 'manifest.json',
