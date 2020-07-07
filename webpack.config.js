@@ -32,7 +32,8 @@ const config = {
     rules: [
       {
         test: /\.tsx?$/,
-        use: 'ts-loader',
+        loader: 'ts-loader',
+        options: { appendTsSuffixTo: [/\.vue/] },
         exclude: /node_modules/,
       },
       {
@@ -87,7 +88,7 @@ const config = {
       filename: '[name].css',
     }),
     new CopyPlugin([
-      { from: 'assets/icons', to: 'assets/icons', ignore: ['icon.xcf'] },
+      { from: 'assets', to: 'assets', ignore: ['icon.xcf'] },
       { from: 'index.html', to: 'index.html', transform: transformHtml },
       { from: 'options/options.html', to: 'options/options.html', transform: transformHtml },
       {
