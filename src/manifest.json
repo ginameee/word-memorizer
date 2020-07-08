@@ -19,5 +19,18 @@
   "options_ui": {
     "page": "options/options.html",
     "chrome_style": true
-  }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content.js"
+      ]
+    }
+  ],
+  "permissions": [
+    "storage"
+  ]
 }

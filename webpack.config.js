@@ -11,9 +11,10 @@ const config = {
   mode: process.env.NODE_ENV,
   context: __dirname + '/src',
   entry: {
-    'background': './background.js',
+    'background': './background/index.ts',
     'index': './index.ts',
     'options/options': './options/options.ts',
+    'content': './content/index.ts'
   },
   output: {
     path: __dirname + '/dist',
