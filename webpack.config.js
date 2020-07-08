@@ -47,15 +47,11 @@ const config = {
       },
       {
         test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+        loader: ['vue-style-loader', 'css-loader'],
       },
       {
         test: /\.scss$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
-      },
-      {
-        test: /\.sass$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader?indentedSyntax'],
+        loader: ['vue-style-loader', 'css-loader', 'sass-loader'],
       },
       {
         test: /\.(png|jpg|jpeg|gif|svg|ico)$/,
