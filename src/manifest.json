@@ -1,5 +1,5 @@
 {
-  "name": "word-memorizer",
+  "name": "Word Memorizer",
   "description": "A Vue.js web extension",
   "version": null,
   "manifest_version": 2,
@@ -8,7 +8,7 @@
     "128": "assets/icons/icon_128.png"
   },
   "browser_action": {
-    "default_title": "word-memorizer",
+    "default_title": "Word Memorizer",
     "default_popup": "index.html"
   },
   "background": {
