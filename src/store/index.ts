@@ -5,11 +5,13 @@ import * as getters from './getters';
 import mutations from './mutations';
 import * as actions from './actions';
 
+import { menuList } from '@/constants/app';
+
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    foo: 'bar',
+    menuList
   },
   getters,
   mutations,
