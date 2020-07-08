@@ -1,5 +1,5 @@
 <template>
-  <p>Hello world!</p>
+  <h1>Info Page</h1>
 </template>
 
 <script>
@@ -10,8 +10,5 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-p {
-  font-size: 20px;
-}
+<style lang="scss">
 </style>
