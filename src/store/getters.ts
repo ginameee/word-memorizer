@@ -1,5 +1,3 @@
-export default {
-    foo(state: any) {
-        return state.foo;
-    }
-};
+import { getterTypes as gTypes } from './store-types';
+
+export default {};

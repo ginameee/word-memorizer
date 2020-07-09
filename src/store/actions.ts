@@ -1,32 +1,23 @@
 import {
-  actionTypes as aTypes,
-  mutationTypes as mTypes
+  mutationTypes as mTypes,
+  actionTypes as aTypes
 } from './store-types';
 
+import uStorage from '@/utils/storage';
 import * as  moment from 'moment';
-import { APP_NAME } from '@/constants/app';
-
-const getDatakey = (yyyymmdd: string = moment(new Date()).format('YYYYMMDD')): string => `${APP_NAME}_${yyyymmdd}`
 
 export default {
-  [aTypes.SAVE_WORD]({ dispatch }, word: string): void {
-    chrome.storage.sync.set(
-      { [getDatakey()]: word },
-      () => {
-        console.log('Value is set to ' + word);
-        dispatch(aTypes.LOAD_WORDS);
-      }
-    );
+  async saveWord({ dispatch }, word: string): Promise<any> {
+    await uStorage.saveWord(word);
+    dispatch(aTypes.LOAD_WORD_LIST);
   },
 
-  [aTypes.LOAD_WORDS]({ commit }, date: Date = new Date()): void {
+  async loadWordList({ commit }, date: Date = new Date()): Promise<any> {
     const yyyymmdd: string = moment(date).format('YYYYMMDD');
+    const wordList = await uStorage.loadData(yyyymmdd);
 
-    chrome.storage.sync.get(
-      [getDatakey(yyyymmdd)],
-      (result) => {
-        console.log('Value currently is ' + result.key);
-        commit(mTypes.SET_WORDS);
-      });
+    commit(mTypes.SET_WORD_LIST, wordList);
+
+    return wordList;
   },
 }

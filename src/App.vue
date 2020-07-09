@@ -19,7 +19,9 @@
 </template>
 
 <script lang="ts">
-import { mapState } from 'vuex';
+import { mapState, mapActions } from 'vuex';
+import { stateTypes as sType } from '@/store/store-types';
+
 export default {
   data() {
     return {};
@@ -27,7 +29,7 @@ export default {
 
   computed: {
     ...mapState({
-      MENU_LIST: 'menuList',
+      MENU_LIST: sType.MENU_LIST,
     }),
   },
 };

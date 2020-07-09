@@ -1,7 +1,9 @@
-import { mutationTypes as types } from './store-types';
+import {
+  stateTypes as sTypes
+} from './store-types';
 
 export default {
-  [types.UPDATE_FOO](state: any, payload: any) {
-    state.foo = payload;
-  },
+  setWordList(state: any, wordList: any[]) {
+    state[sTypes.WORD_LIST] = wordList;
+  }
 };

@@ -2,14 +2,15 @@ import { APP_NAME } from '@/constants/app';
 import * as  moment from 'moment';
 
 export default {
-    saveData(data: Object): Promise<any> {
+    saveData(key: string, data: any): Promise<any> {
+        key = `${APP_NAME}_${key}`;
+
         return new Promise(
             (resolve, reject) => {
                 try {
                     chrome.storage.sync.set(
-                        data,
+                        { [key]: data },
                         () => {
-                            console.log(data)
                             resolve();
                         }
                     );
@@ -21,12 +22,16 @@ export default {
         );
     },
     loadData(key: string): Promise<any> {
+        key = `${APP_NAME}_${key}`;
+
         return new Promise(
             (resolve, reject) => {
                 try {
                     chrome.storage.sync.get(
                         key,
-                        (result) => { resolve(result); }
+                        (result) => {
+                            resolve(result[key]);
+                        }
                     );
                 }
                 catch (e) {
@@ -39,15 +44,16 @@ export default {
         if (!word) { return; }
 
         const yyyymmdd = moment(new Date()).format('YYYYMMDD');
-        const key = `${APP_NAME}_${yyyymmdd}`;
+        const key = `${yyyymmdd}`;
         const savedData = await this.loadData(key);
-        const wordList = savedData[key] || [];
+        const wordList = savedData || [];
 
         console.log(wordList);
 
         wordList.push(word);
+        console.log(wordList);
 
-        return this.saveData({ [key]: wordList })
+        return this.saveData(key, wordList)
             .then(
                 () => {
                     console.log('success!');
