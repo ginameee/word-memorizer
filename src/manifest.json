@@ -1,5 +1,5 @@
 {
-  "name": "Word Memorizer",
+  "name": "word-memorizer",
   "description": "A Vue.js web extension",
   "version": null,
   "manifest_version": 2,
