@@ -4,7 +4,8 @@ export const mutationTypes = {
 
 export const actionTypes = {
     SAVE_WORD: 'saveWord',
-    LOAD_WORD_LIST: 'loadWordList'
+    LOAD_WORD_LIST: 'loadWordList',
+    CLEAR_WORD_LIST: 'clearWordList'
 };
 
 export const stateTypes = {

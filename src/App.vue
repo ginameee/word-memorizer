@@ -12,7 +12,7 @@
         </el-menu-item>
       </el-menu>
     </el-header>
-    <el-main height="420px">
+    <el-main>
       <router-view></router-view>
     </el-main>
   </div>
