@@ -1,1 +1,5 @@
-export const foo = (state: any) => state.foo;
+export default {
+    foo(state: any) {
+        return state.foo;
+    }
+};

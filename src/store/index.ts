@@ -1,19 +1,16 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
-import * as getters from './getters';
+import getters from './getters';
 import mutations from './mutations';
-import * as actions from './actions';
-
-import { menuList } from '@/constants/app';
+import actions from './actions';
+import state from './state';
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: {
-    menuList
-  },
+  state,
   getters,
   mutations,
-  actions,
+  actions
 });
