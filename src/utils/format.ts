@@ -1,5 +1,11 @@
 export function checkWordValid(text: string): boolean {
-    const wordRegex = /[a-z]+/gi;
+  if (!text) {
+    return false;
+  }
 
-    return wordRegex.test(text);
+  const wordRegex = /[a-z]+/gi;
+  const isWord: boolean = text.length > 0 && wordRegex.test(text);
+  const isSentence: boolean = text.split(' ').length > 1;
+
+  return isWord && !isSentence;
 }

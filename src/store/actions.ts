@@ -15,7 +15,7 @@ export default {
 
   async loadWordList({ commit }, date: Date = new Date()): Promise<IWord[]> {
     const yyyymmdd: string = moment(date).format('YYYYMMDD');
-    const wordList = await loadData(yyyymmdd);
+    const wordList = await loadData(yyyymmdd) || [];
 
     commit(mTypes.SET_WORD_LIST, wordList);
 

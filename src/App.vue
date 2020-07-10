@@ -1,6 +1,6 @@
 <template>
-  <div class="app-container">
-    <el-header>
+  <div class="container">
+    <header class="header">
       <el-menu default-active="0" mode="horizontal">
         <el-menu-item v-for="(menu, idx) in MENU_LIST" :index="idx + ''" :key="menu.id">
           <router-link :to="menu.path">
@@ -11,10 +11,10 @@
           </router-link>
         </el-menu-item>
       </el-menu>
-    </el-header>
-    <el-main>
+    </header>
+    <section class="content">
       <router-view></router-view>
-    </el-main>
+    </section>
   </div>
 </template>
 
@@ -36,13 +36,15 @@ export default {
 </script>
 
 <style lang="scss">
-.app-container {
+.container {
   width: 480px;
   height: 400px;
 }
 
-.el-header {
-  height: 15% !important;
+.header {
+  position: fixed;
+  z-index: 1;
+  height: 60px !important;
   padding: 0 !important;
 
   .el-menu {
@@ -62,10 +64,14 @@ export default {
   }
 }
 
-.el-main {
-  height: 85%;
-  display: flex !important;
-  justify-content: center;
-  align-items: center;
+.content {
+  height: calc(100% - 60px);
+  padding: 10px;
+  padding-top: 60px;
+
+  & > div:first-child {
+    width: 100%;
+    height: 100%;
+  }
 }
 </style>
