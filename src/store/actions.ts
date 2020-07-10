@@ -3,16 +3,17 @@ import {
   actionTypes as aTypes
 } from './store-types';
 
-import { saveData, loadData, saveWord as saveWordToStorage } from '@/utils/storage';
+import { saveData, loadData } from '@/utils/storage';
+import { saveWord as saveWordToChrome } from '@/utils/word';
 import * as  moment from 'moment';
 
 export default {
-  async saveWord({ dispatch }, word: string): Promise<any> {
-    await saveWordToStorage(word);
+  async saveWord({ dispatch }, word: IWord): Promise<any> {
+    await saveWordToChrome(word);
     dispatch(aTypes.LOAD_WORD_LIST);
   },
 
-  async loadWordList({ commit }, date: Date = new Date()): Promise<any> {
+  async loadWordList({ commit }, date: Date = new Date()): Promise<IWord[]> {
     const yyyymmdd: string = moment(date).format('YYYYMMDD');
     const wordList = await loadData(yyyymmdd);
 
@@ -21,8 +22,6 @@ export default {
     return wordList;
   },
   async clearWordList({ commit }, date: Date = new Date()): Promise<any> {
-    console.log(date);
-
     const yyyymmdd: string = moment(date).format('YYYYMMDD');
 
     await saveData(yyyymmdd, []);

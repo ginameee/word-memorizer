@@ -1,12 +1,5 @@
 import * as manifest from '@/manifest.json';
 
-interface IMenu {
-    id: string;
-    title: string;
-    path: string;
-    iconClassName?: string;
-}
-
 export const MENU_LIST: IMenu[] = [
     { id: 'word', title: '단어장', path: '/word', iconClassName: 'el-icon-edit' },
     { id: 'notification', title: '공지사항', path: '/notification', iconClassName: 'el-icon-bell' },

@@ -6,11 +6,4 @@ declare global {
     }
 }
 
-interface IMenu {
-    id: string;
-    title: string;
-    path: string;
-    iconClassName?: string;
-}
-
 export { };
