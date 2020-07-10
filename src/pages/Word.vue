@@ -44,8 +44,8 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex';
-import { actionTypes as aTypes, stateTypes as sTypes } from '@/store/store-types';
+import { mapState, mapActions, mapMutations } from 'vuex';
+import { actionTypes as aTypes, stateTypes as sTypes, mutationTypes as mTypes } from '@/store/store-types';
 import * as moment from 'moment';
 import WordCard from '@/components/word/WordCard.vue';
 
@@ -55,6 +55,7 @@ export default {
   },
 
   created() {
+    this.selectedDate = this.DATE;
     this.LOAD_WORD_LIST(this.selectedDate);
   },
 
@@ -69,6 +70,7 @@ export default {
   computed: {
     ...mapState({
       WORD_LIST: sTypes.WORD_LIST,
+      DATE: sTypes.DATE,
     }),
   },
 
@@ -76,6 +78,9 @@ export default {
     ...mapActions({
       LOAD_WORD_LIST: aTypes.LOAD_WORD_LIST,
       CLEAR_WORD_LIST: aTypes.CLEAR_WORD_LIST,
+    }),
+    ...mapMutations({
+      SET_DATE: mTypes.SET_DATE,
     }),
     clearWordList() {
       this.isHidedName = false;
@@ -89,11 +94,12 @@ export default {
     changeNameDisplay() {
       this.isHidedName = !this.isHidedName;
     },
-    onSelectDate(e) {
+    onSelectDate() {
       this.isHidedName = false;
       this.isHidedMeaning = false;
 
-      this.LOAD_WORD_LIST(this.selectedDate);
+      this.SET_DATE(this.selectedDate);
+      this.LOAD_WORD_LIST(this.DATE);
     },
     onSelectMenu(command) {
       switch (command) {

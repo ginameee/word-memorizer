@@ -18,7 +18,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import { mapState, mapActions } from 'vuex';
 import { stateTypes as sType } from '@/store/store-types';
 
