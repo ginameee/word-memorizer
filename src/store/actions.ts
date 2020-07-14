@@ -6,8 +6,11 @@ import * as moment from 'moment';
 
 interface IWordParam {
   targetWord: string;
-  word?: IWord;
   date: Date;
+}
+
+interface IUpdateWordParam extends IWordParam {
+  newWord: IWord;
 }
 
 export default {
@@ -40,5 +43,12 @@ export default {
     dispatch(aTypes.LOAD_WORD_LIST, date);
   },
 
-  async updateWord({ state, dispatch }, payload: IWordParam): Promise<any> { },
+  async updateWord({ dispatch }, payload: IUpdateWordParam): Promise<any> {
+    const targetWordName = payload.targetWord;
+    const date = payload.date;
+    const newWord = payload.newWord;
+
+    await uWord.updateWord(date, targetWordName, newWord);
+    dispatch(aTypes.LOAD_WORD_LIST, date);
+  },
 };

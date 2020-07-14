@@ -82,7 +82,7 @@ export default {
         meaning: this.meaning,
       };
 
-      this.UPDATE_WORD(this.DATE, oldWordName, updatedWord);
+      this.UPDATE_WORD({ date: this.DATE, targetWord: oldWordName, newWord: updatedWord }, updatedWord);
 
       this.isUpdateMode = false;
     },
