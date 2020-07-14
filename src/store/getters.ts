@@ -1,1 +1,3 @@
-export const foo = (state: any) => state.foo;
+import { getterTypes as gTypes } from './store-types';
+
+export default {};

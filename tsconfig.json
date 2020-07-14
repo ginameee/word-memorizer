@@ -2,7 +2,7 @@
     "compilerOptions": {
         "outDir": "./dist/",
         // Vue의 브라우저 지원과 같습니다.
-        "target": "esnext",
+        "target": "es2018",
         // 이러면 `this`에 대한 데이터 속성에 대한 더 엄격한 추측이 가능합니다.
         "strict": true,
         // webpack 2 이상 또는 rollup을 사용하여 트리셰이킹을 하려면,
@@ -10,8 +10,17 @@
         "moduleResolution": "node",
         "typeRoots": [
             "./node_modules/@types",
-            "./types"
+            "./src/types"
         ],
+        "resolveJsonModule": true,
+        "noImplicitAny": false,
+        //VScode가  webpack의 resolve.alias를 인지하지 못하여, tsConfig에도 부득이하게 다시 추가함
+        "baseUrl": ".",
+        "paths": {
+            "@/*": [
+                "./src/*"
+            ]
+        }
     },
     "include": [
         "src/**/*",

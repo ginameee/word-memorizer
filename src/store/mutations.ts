@@ -1,7 +1,10 @@
-import * as types from './mutation-types';
+import { stateTypes as sTypes } from './store-types';
 
 export default {
-  [types.UPDATE_FOO](state: any, payload: any) {
-    state.foo = payload;
+  setWordList(state: any, wordList: any[]) {
+    state[sTypes.WORD_LIST] = wordList;
+  },
+  setDate(state: any, date: Date) {
+    state[sTypes.DATE] = date;
   },
 };
