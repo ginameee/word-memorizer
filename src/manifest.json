@@ -9,7 +9,7 @@
   },
   "browser_action": {
     "default_title": "Word Memorizer",
-    "default_popup": "index.html"
+    "default_popup": "popup/index.html"
   },
   "background": {
     "scripts": [

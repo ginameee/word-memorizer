@@ -33,7 +33,7 @@
 </template>
 <script>
 import { mapState, mapActions } from 'vuex';
-import { stateTypes as sTypes, actionTypes as aTypes } from '@/store/store-types';
+import { stateTypes as sTypes, actionTypes as aTypes } from '@popup/store/store-types';
 
 export default {
   props: ['word', 'hideMeaning', 'hideName'],

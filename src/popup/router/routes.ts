@@ -1,7 +1,7 @@
-import Word from '@/pages/Word.vue';
-import Information from '@/pages/Information.vue';
-import Notification from '@/pages/Notification.vue';
-import Setting from '@/pages/Setting.vue';
+import Word from '@popup/pages/Word.vue';
+import Information from '@popup/pages/Information.vue';
+import Notification from '@popup/pages/Notification.vue';
+import Setting from '@popup/pages/Setting.vue';
 
 export default [
   {

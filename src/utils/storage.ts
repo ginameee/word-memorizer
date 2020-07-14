@@ -1,4 +1,4 @@
-import { APP_NAME } from '@/constants/app';
+import { APP_NAME } from '@/constants/popup';
 
 export function saveData(key: string, data: any): Promise<any> {
     key = `${APP_NAME}_${key}`;

@@ -1,7 +1,7 @@
 import Vue from 'vue';
-import App from './App.vue';
-import store from './store';
-import router from './router';
+import PopupApp from '@popup/Popup.vue';
+import store from '@popup/store';
+import router from '@popup/router';
 import elementUI from 'element-ui';
 
 import locale from 'element-ui/lib/locale/lang/ko.js';
@@ -17,5 +17,5 @@ new Vue({
   el: '#app',
   store,
   router,
-  render: h => h(App),
+  render: h => h(PopupApp),
 });

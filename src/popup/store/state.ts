@@ -1,4 +1,4 @@
-import { MENU_LIST } from '@/constants/app';
+import { MENU_LIST } from '@/constants/popup';
 
 export default {
   menuList: MENU_LIST,

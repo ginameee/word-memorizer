@@ -1,4 +1,4 @@
-import { mutationTypes as mTypes, actionTypes as aTypes, stateTypes as sTypes } from './store-types';
+import { mutationTypes as mTypes, actionTypes as aTypes } from './store-types';
 
 import { saveData, loadData } from '@/utils/storage';
 import * as uWord from '@/utils/word';

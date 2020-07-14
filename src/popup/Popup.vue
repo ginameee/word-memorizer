@@ -20,7 +20,7 @@
 
 <script>
 import { mapState, mapActions } from 'vuex';
-import { stateTypes as sType } from '@/store/store-types';
+import { stateTypes as sType } from '@popup/store/store-types';
 
 export default {
   data() {

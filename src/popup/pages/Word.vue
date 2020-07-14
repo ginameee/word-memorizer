@@ -45,9 +45,9 @@
 
 <script>
 import { mapState, mapActions, mapMutations } from 'vuex';
-import { actionTypes as aTypes, stateTypes as sTypes, mutationTypes as mTypes } from '@/store/store-types';
+import { actionTypes as aTypes, stateTypes as sTypes, mutationTypes as mTypes } from '@/popup/store/store-types';
 import * as moment from 'moment';
-import WordCard from '@/components/word/WordCard.vue';
+import WordCard from '@/popup/components/word/WordCard.vue';
 
 export default {
   components: {
