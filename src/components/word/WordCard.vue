@@ -34,7 +34,7 @@
 <script>
 import { mapState, mapActions } from 'vuex';
 import { stateTypes as sTypes, actionTypes as aTypes } from '@/store/store-types';
-import { updateWord, deleteWord } from '@/utils/word';
+
 export default {
   props: ['word', 'hideMeaning', 'hideName'],
 

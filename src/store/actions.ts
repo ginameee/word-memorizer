@@ -1,7 +1,7 @@
 import { mutationTypes as mTypes, actionTypes as aTypes, stateTypes as sTypes } from './store-types';
 
 import { saveData, loadData } from '@/utils/storage';
-import { saveWord as saveWordToChrome, deleteWord, updateWord, getIndex } from '@/utils/word';
+import * as uWord from '@/utils/word';
 import * as moment from 'moment';
 
 interface IWordParam {
@@ -12,7 +12,7 @@ interface IWordParam {
 
 export default {
   async saveWord({ dispatch }, word: IWord): Promise<any> {
-    await saveWordToChrome(word);
+    await uWord.saveWord(word);
     dispatch(aTypes.LOAD_WORD_LIST);
   },
 
@@ -32,16 +32,13 @@ export default {
     commit(mTypes.SET_WORD_LIST, []);
   },
 
-  async deleteWord({ state, dispatch }, payload: IWordParam): Promise<any> {
-    const wordList = state[sTypes.WORD_LIST];
-
+  async deleteWord({ dispatch }, payload: IWordParam): Promise<any> {
     const wordName = payload.targetWord;
     const date = payload.date;
-    const idx = getIndex(wordName, wordList);
 
-    await deleteWord(date, idx);
-    dispatch(aTypes.LOAD_WORD_LIST);
+    await uWord.deleteWord(date, wordName);
+    dispatch(aTypes.LOAD_WORD_LIST, date);
   },
 
-  async updateWord({ state, dispatch }, payload: IWordParam): Promise<any> {},
+  async updateWord({ state, dispatch }, payload: IWordParam): Promise<any> { },
 };

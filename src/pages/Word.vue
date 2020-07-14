@@ -29,8 +29,8 @@
     <section class="word-list" v-if="WORD_LIST.length > 0">
       <word-card
         class="word-list__item"
-        v-for="(word, idx) in WORD_LIST"
-        :key="idx"
+        v-for="word in WORD_LIST"
+        :key="word.name"
         :word="word"
         :hide-meaning="isHidedMeaning"
         :hide-name="isHidedName"

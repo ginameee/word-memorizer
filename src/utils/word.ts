@@ -7,21 +7,22 @@ export async function saveWord(word: IWord, date: Date = new Date()): Promise<an
     return;
   }
 
-  const key = moment(new Date()).format('YYYYMMDD');
-  const savedList = (await loadData(key)) || [];
+  const key = moment(date).format('YYYYMMDD');
+  let savedList = (await loadData(key)) || [];
 
-  savedList.push(word);
+  savedList = [word, ...savedList];
 
   return saveData(key, savedList);
 }
 
-export async function deleteWord(date: Date, index: number) {
+export async function deleteWord(date: Date, wordName: string) {
   const key = moment(date).format('YYYYMMDD');
-  const savedList = await loadData(key);
+  const wordList = await loadData(key);
+  const idx = getIndex(wordName, wordList);
 
-  savedList.splice(index, 1);
+  wordList.splice(idx, 1);
 
-  saveData(key, savedList);
+  await saveData(key, wordList);
 }
 
 export async function updateWord(date: Date, wordName: string, newWord: IWord) {
@@ -37,7 +38,7 @@ export async function updateWord(date: Date, wordName: string, newWord: IWord) {
   saveData(key, savedList);
 }
 
-export async function checkDuplicate() {}
+export async function checkDuplicate() { }
 
 export async function getMeaning(wordName: string) {
   return `${wordName} is blahblah...`;
