@@ -17,7 +17,7 @@
     ]
   },
   "options_ui": {
-    "page": "options/options.html",
+    "page": "options/index.html",
     "chrome_style": true
   },
   "content_scripts": [

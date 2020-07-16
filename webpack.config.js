@@ -89,7 +89,7 @@ const config = {
     new CopyPlugin([
       { from: 'assets', to: 'assets', ignore: ['icon.xcf'] },
       { from: 'popup/index.html', to: 'popup/index.html', transform: transformHtml },
-      { from: 'options/options.html', to: 'options/options.html', transform: transformHtml },
+      { from: 'options/index.html', to: 'options/index.html', transform: transformHtml },
       {
         from: 'manifest.json',
         to: 'manifest.json',
